@@ -16,11 +16,12 @@ Show any code that is needed to
 
 ```{r echo=TRUE}
 #setting working directory
+setwd("C:/Data/devtools/Git/RepData_PeerAssessment1")
 library(knitr)
 library(ggplot2)
 #suppressMessages to suppress warning/ messages
 suppressMessages(library(dplyr))
-opts_knit$set(base.dir = "C:/Data/devtools/Git/RepData_PeerAssessment1")
+
 amdata <- NULL
 #Checking for file in current directory
 if(!file.exists("activity.csv"))
@@ -178,19 +179,16 @@ wdnddata$day <- ifelse((wdnddata$day == "Saturday") | (wdnddata$day == "Sunday")
 wkdendmean <- aggregate(steps.x ~ interval + day, data = wdnddata, mean)
 #updating column name
 names(wkdendmean)[3] <- "stepsmn"
+
+
+qplot(interval, stepsmn, data=wkdendmean, type="l", geom="line",xlab="Interval", ylab="Average number of steps)",
+      main="Average steps taken Weekends vs. Weekdays", facets =day ~ .)
+
 #head(wkdendmean)
-#qplot(interval, stepsmn, data=wkdendmean, type="l", geom="line",xlab="Interval", ylab="Average number of steps)",
-#      main="Average steps taken Weekends vs. Weekdays", facets =day ~ .)
 g <- ggplot(wkdendmean, aes(x = interval, y = stepsmn, group = day)) + geom_line(aes(colour = day)) + ylab('Average number of steps') + ggtitle('Average number of steps taken Weekdays vs Weekends') + geom_line(aes(colour = day)) +
         facet_grid(day ~ .) + theme(legend.position = "none")
 print(g)
-```
 
-*Execute below script in commandline (or R console) to generate plot images and place them in './figure' folder  
-knit2html("PA1_template.Rmd", "PA1_template.html")*  
-
-  
-
-
+```  
 
 
