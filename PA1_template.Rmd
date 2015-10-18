@@ -16,10 +16,12 @@ Show any code that is needed to
 
 ```{r echo=TRUE}
 #setting working directory
+setwd("C:/Data/devtools/Git/RepData_PeerAssessment1")
 library(knitr)
 library(ggplot2)
 #suppressMessages to suppress warning/ messages
 suppressMessages(library(dplyr))
+#setting working directory for knit
 opts_knit$set(base.dir = "C:/Data/devtools/Git/RepData_PeerAssessment1")
 amdata <- NULL
 #Checking for file in current directory
@@ -188,9 +190,4 @@ print(g)
 
 *Execute below script in commandline (or R console) to generate plot images and place them in './figure' folder  
 knit2html("PA1_template.Rmd", "PA1_template.html")*  
-
-  
-
-
-
 

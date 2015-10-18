@@ -211,10 +211,12 @@ hr {
 </ol>
 
 <pre><code class="r">#setting working directory
+setwd(&quot;C:/Data/devtools/Git/RepData_PeerAssessment1&quot;)
 library(knitr)
 library(ggplot2)
 #suppressMessages to suppress warning/ messages
 suppressMessages(library(dplyr))
+#setting working directory for knit
 opts_knit$set(base.dir = &quot;C:/Data/devtools/Git/RepData_PeerAssessment1&quot;)
 amdata &lt;- NULL
 #Checking for file in current directory
