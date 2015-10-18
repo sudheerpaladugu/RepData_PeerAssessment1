@@ -186,7 +186,7 @@ names(wkdendmean)[3] <- "stepsmn"
 g <- ggplot(wkdendmean, aes(x = interval, y = stepsmn, group = day)) + geom_line(aes(colour = day)) + ylab('Average number of steps') + ggtitle('Average number of steps taken Weekdays vs Weekends') + geom_line(aes(colour = day)) +
         facet_grid(day ~ .) + theme(legend.position = "none")
 print(g)
-```
+```  
 
 *Execute below script in commandline (or R console) to generate plot images and place them in './figure' folder  
 knit2html("PA1_template.Rmd", "PA1_template.html")*  
